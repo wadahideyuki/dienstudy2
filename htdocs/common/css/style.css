@@ -2497,51 +2497,39 @@ a[name^="scrl"] {
 /*----------------------------------------
   メイン
 ----------------------------------------*/
-.block_main .pc .bg {
-  background-color: rgba(0, 0, 255, 0.1);
+.block_main .bg {
+  background-image: url("/common/images/main/bg.jpg");
 }
 
-.block_main .pc .inner {
-  height: 500px;
+.block_main .bg .cont {
+  width: 980px;
+  height: 707px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.block_main .pc .inner > * {
+.block_main .bg .cont h1 {
   position: absolute;
+  left: 100px;
+  top: 32px;
 }
 
-.block_main .pc h1 {
-  top: 20px;
-  left: 20px;
+.block_main .bg .cont .day {
+  position: absolute;
+  right: 0px;
+  top: 30px;
 }
 
-.block_main .pc .day {
-  top: 10px;
-  left: 490px;
+.block_main .bg .cont .txt2 {
+  position: absolute;
+  left: 0px;
+  bottom: 30px;
 }
 
-.block_main .pc .price {
-  top: 180px;
-  left: 20px;
-}
-
-.block_main .pc .copy {
-  top: 100px;
-  left: 670px;
-}
-
-.block_main .pc .txt {
-  top: 170px;
-  left: 550px;
-}
-
-.block_main .pc .btn {
-  top: 398px;
-  left: 550px;
-  transition: filter 0.3s;
-}
-
-.block_main .pc .btn:hover {
-  filter: brightness(150%);
+.block_main .bg .cont .btn {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 }
 
 /*----------------------------------------

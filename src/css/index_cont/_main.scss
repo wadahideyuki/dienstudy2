@@ -10,45 +10,34 @@ article:not(.block_#{$name}){
 //  display: none;
 }
 .block_#{$name}{
-  @include mq{
-  }
-  .pc{
-    .bg{
-      background-color: rgba(0,0,255,0.1);
-    }
-    .inner{
-      height: 500px;
-      > *{
+  .bg{
+    background-image: url("/common/images/main/bg.jpg");
+    .cont{
+      width:980px;
+      height: 707px;
+      margin: 0 auto;
+      position: relative;
+      h1{
         position: absolute;
+        left: 100px;
+        top: 32px;
+      }
+      .day{
+        position: absolute;
+        right: 0px;
+        top: 30px;
+      }
+      .txt2{
+        position: absolute;
+        left: 0px;
+        bottom: 30px;
+      }
+      .btn{
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
       }
     }
-    h1{
-      top: 20px;
-      left: 20px;
-    }
-    .day{
-      top: 10px;
-      left: 490px;
-    }
-    .price{
-      top: 180px;
-      left: 20px;
-    }
-    .copy{
-      top: 100px;
-      left: 670px;
-    }
-    .txt{
-      top: 170px;
-      left: 550px;
-    }
-    .btn{
-      top: 398px;
-      left: 550px;
-      @include hvrBrt;
-    }
-  }
-  .sp{
   }
 }
 
