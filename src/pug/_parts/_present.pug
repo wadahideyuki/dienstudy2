@@ -1,0 +1,28 @@
+section.teikiPre
+  h2.ttl
+    +img("teikipre/pre_ttl.png", "定期購読なら【売り切れ】【買い忘れ】の心配がありません♪")
+
+  if name=="pageOrder"
+    p.txt
+      +img("order/pre_ttl.png", "今 定期購読をお申し込みいただくと！")
+  else
+    +gaTeiki("04")
+    p.txt
+      +img("teikipre/pre_txt.png", "今お申し込みいただくと！")
+
+  .preBox
+    unless version == 0
+      +ga(1, "web_present", pathImg + "teikipre/webpre.png")(class="mdlImgSingle preWeb")
+        img.ovr(src=pathImg + "teikipre/pre_web_img.png", loading="lazy", alt="Web限定プレゼント")
+    +ga(1, "Zen_present", pathImg + "teikipre/zenpre.png")(class="mdlImgSingle preZen")
+      img.ovr(src=pathImg + "teikipre/pre_img.png", loading="lazy", alt="読者全員プレゼント！")
+
+  
+    if name=="partTeiki" && version == 0
+      p.preNote
+        strong WEBから定期購読をお申し込みいただくと、第57号発売時に自動的にお届けします。
+        | ※お届け時に継続中の方に限ります。発送前に解約された場合には特典の対象外となります。※海外への発送はできません。※デザイン・仕様等は変更になる場合がございます。あらかじめご了承ください
+    else
+      p.preNote ※お届け時に継続中の方に限ります。発送前に解約された場合には特典の対象外となります。※画像はイメージです。デザイン等は変更になる場合がございます。
+
+

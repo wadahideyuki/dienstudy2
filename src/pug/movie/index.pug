@@ -1,0 +1,56 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  include /_parts/_head.pug
+    link(href='https://fonts.googleapis.com/earlyaccess/notosansjapanese.css', rel='stylesheet', type='text/css', media='all')
+    +css2("style.css")
+
+    .supportPage
+      #deagoLogo
+        a(href="/")
+          +deagoLogo
+
+      .ttlArea
+        h1 
+          a(href="/" + seriesInit + "/")
+            +img2("movie/main_ttl.png", seriesTtl + " サポート動画")
+
+      .contArea
+        article.listBox
+          -
+            var movInfo = [
+              //降順で記述する
+              {
+                "no": 3,
+                "link": "xxxxxxxxxxx",
+                "txt": "Comming soon"
+              },
+              {
+                "no": 2,
+                "link": "xxxxxxxxxxx",
+                "txt": "Comming soon"
+              },
+              {
+                "no": 1,
+                "link": "xxxxxxxxxxx",
+                "txt": "Comming soon"
+              }
+            ]
+          each val in movInfo
+            section
+              .box
+                a(href="https://youtu.be/" + val.link, target='_blank')
+                  -var gosu = val.no == 1 ? "創刊号" : "第" + val.no + "号"
+                  span #{gosu}
+                  !=val.txt
+        
+        .btnBack 
+          a(href="/" + seriesInit + "/") 戻る
+
+
+    // /#supportPage
+
+
+    .pagetop.pc
+      p: a(href="#wrapper") ページトップへ
+
+    include /_parts/_footer.pug

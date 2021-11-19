@@ -1,0 +1,19 @@
+/*----------------------------------------
+  イントロ
+----------------------------------------*/
+
+$name: "intro";
+$thisPath: $pathImg + $name + "/";
+
+article:not(.block_#{$name}){
+//  display: none;
+}
+.block_#{$name}{
+  @include mq{
+  }
+  h2{
+    padding: 30px 0;
+    font-size: 4.8rem;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,84 @@
+/*--------------------------------------
+  よくあるご質問ページ
+---------------------------------------*/
+#pageFaq{
+  .inner{
+    max-width: 915px;
+    margin: 0 auto;
+    padding-top: 30px;
+    @include mq{
+      padding-top: 45px;
+    }
+  }
+  .logo {
+    background: #FFFFFF;
+    margin-bottom: 30px;
+    text-align: center; 
+    @include mq{
+      width: 70%;
+      margin: 0 auto 50px;
+    }
+    a{
+      display: inline-block;
+    }
+  }
+  h1 {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    color: #333333;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    @include mq{
+      margin-bottom: 30px;
+      padding: 10px 15px;
+    }
+  }
+  .faqBox {
+    h2 {
+      background: #D5E0DE;
+      height: auto;
+      text-align: left;
+      font-weight: bold;
+      padding: 5px !important;
+      border-top: 2px solid #003333;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #333;
+      @include mq{
+        margin-top: 30px;
+        margin-bottom: 15px;
+        padding: 10px !important;
+      }
+      + p {
+        background: url(dummy);
+        /*android用*/
+      }
+    }
+    .redtxt {
+      font-size: 11px;
+      color: #990000;
+      padding-top: 5px;
+    }
+    .back {
+      text-align: center;
+      padding: 10px;
+    }
+    h3 {
+      margin-top: 1px;
+      padding-top: 10px;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    h4 {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #900;
+    }
+    .jutyuTxt,
+    .supportTxt{
+      margin-top: 1.0em;
+    }
+  }
+}
+

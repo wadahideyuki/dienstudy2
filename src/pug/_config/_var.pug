@@ -1,0 +1,147 @@
+//- ---------------------
+        変数用pug
+  -----------------------
+
+//- なるべく【編集】と書かれている項目のみイジる
+
+//- ------------------------------
+            version別
+  ------------------------------//
+//-【編集】
+  限定版 0
+  全国版ローカル確認 1
+  全国版アップ 2
+- var version = 0
+
+
+//- ------------------------------
+            基本情報
+  ------------------------------//
+//- シリーズタイトル【編集】
+- var seriesTtl = "週刊 たいとるたいとるたいとる"
+
+//- シリーズinitial【編集】
+- var seriesInitLower = "xxx"
+
+//- シリーズinitial(version別)
+case version
+  when 0: - var seriesInit = seriesInitLower + "mt"
+  when 1
+  when 2
+    - var seriesInit = seriesInitLower
+  default: - break 
+
+//- シリーズinitial(大文字)
+- var seriesInitUpper = seriesInitLower.toUpperCase()
+
+//- 発売日【編集】
+- var release = "2021年10月30日"
+
+//- 完結号【編集】
+- var finNum = "100"
+
+//- 定価【編集】
+- var priceSokan = "229"
+- var priceNormal = "690"
+
+//- バインダー価格【編集】
+- var priceBinder = "699"
+- var priceBinderNormal = "1,328"
+
+
+//- ------------------------------
+              パス
+  ------------------------------//
+//- ----- デアゴ直下からのパス -----//
+//- デアゴルート
+- var pathDeagoRoot = "//deagostini.jp/"
+
+//- デアゴCss
+- var pathDeagoCss = pathDeagoRoot + "css/"
+
+//- デアゴJs
+- var pathDeagoJs = pathDeagoRoot + "js/"
+
+
+//- ----- 全国版パス -----//
+- var pathNational = `/site/${seriesInitLower}/pretop/`
+
+
+//- ----- 下階層、モーダルなどへのパス(indexから見た場合) -----//
+case version
+  when 0
+  when 1
+    - var pathLower = "./"
+    - var pathLower2 = "../"
+  when 2
+    - var pathLower = pathNational
+    - var pathLower2 = pathNational
+  default
+    - break 
+
+
+//- ----- commonパス -----//
+//- cssパス
+- var pathCss = pathLower + "common/css/"
+- var pathCss2 = pathLower2 + "common/css/"
+//- jsパス
+- var pathJs = pathLower + "common/js/"
+- var pathJs2 = pathLower2 + "common/js/"
+//- 画像パス
+- var pathImg = pathLower + "common/images/"
+- var pathImg2 = pathLower2 + "common/images/"
+
+
+//- ----- その他 -----//
+
+
+//- ------------------------------
+              URL
+  ------------------------------//
+//- ----- 定期購読url -----//
+//- 限定版の末尾2文字【編集】
+- var teikiInit = "m1"
+//- 振り分け
+case version
+  when 0: - var teikiUrl = `/${seriesInitLower}${teikiInit}/order_series.php`
+  when 1
+  when 2
+    - var teikiUrl = `${pathLower}order/`
+  default: - break 
+
+
+//- よくあるご質問
+case version
+  when 0: - var faqUrl = "faq/index.html"
+  when 1
+  when 2
+    - var faqUrl = `/${seriesInitLower}/faq.php`
+  default: - break 
+
+//- アンケートurl(限定版のみ)【編集】
+- var ancUrl = "https://enq.c-rings.net/e.aspx?q=Ea5O1nsHFPI%3d"
+
+//- 創刊号をお試し購入送料無料url(全国版のみ)【編集】
+- var trialUrl = "//deagostini.jp/order/index.php?mod=bulk&backnumber[1007380001000000]=1"
+
+//- 今後のお届け予定(全国版のみ)【編集】
+- var kongonoyotei = "/faq/deliveryperiod/KHQ_4e.pdf"
+
+
+//- ----- その他 --------------------//
+//- breakpoint
+- var spW = "(max-width: 767px)"
+
+//- 定価か価格か【編集】
+- var priceName = "価格"
+
+//- 定価テキスト【編集】
+- var priceAll = "創刊号特別" + priceName + priceSokan + "円10%税込 第2号以降通常" + priceName + "：" + priceNormal + "円(10%税込)"
+
+//- 創刊のテキスト
+- var soukanTxt = `『${seriesTtl}』は、${release}創刊！`
+
+//- 創刊のテキスト(エンコード)
+- var soukanTxtEncode = encodeURIComponent(soukanTxt);
+
+

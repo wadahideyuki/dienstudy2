@@ -1,0 +1,28 @@
+ul.snsBtns
+  // line
+  li
+    a(href=`https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fdeagostini.jp%2F${seriesInitLower}` target="_blank")
+      img(src=pathImg + "national/btn_line.png" alt="facebook" width="100" height="35")
+  // Twitter
+  li
+    a(href=`http://twitter.com/share?url=https://deagostini.jp/${seriesInitLower}/&text=${soukanTxtEncode}%20%23${seriesInitUpper}_DeA%20%0D%0A`, target="_blank")
+      img(src=pathImg + "national/btn_twt.png" alt="twitter" width="100" height="35")
+  // FaceBoox
+  li
+    a(href=`https://www.facebook.com/sharer/sharer.php?u=https://deagostini.jp/${seriesInitLower}/` target="_blank")
+      img(src=pathImg + "national/btn_fb.png" alt="facebook" width="100" height="35")
+
+
+//----- アカウントに飛ぶ -----//
+  // Twitter
+  li
+    +ga(1, "SNS_TW", "https://twitter.com/DeagostiniJapan")
+      img(src= pathImg + 'national/btn_twt.png', loading="lazy", alt='twitter', width='35', height='35')
+  // FaceBoox
+  li
+    +ga(1, "SNS_FB", "https://www.facebook.com/DeAGOSTINI.JAPAN/")
+      img(src= pathImg + 'national/btn_fb.png', loading="lazy", alt='facebook', width='35', height='35')
+  // Instagram
+  li
+    +ga(1, "SNS_IS", "https://www.instagram.com/deagostinijapan/")
+      img(src= pathImg + 'national/btn_ig.png', loading="lazy", alt='instagram', width='35', height='35')

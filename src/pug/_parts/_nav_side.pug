@@ -1,0 +1,16 @@
+.naviArea
+  span.clsNav
+    b ×
+    span メニューを閉じる
+  ul
+    li: +ga(0, "H_Feature", "#scrl_intro")(class="nav1 clkScrl") 本誌の特色
+    li: +ga(0, "H_introduce", "#scrl_magazine")(class="nav3 clkScrl") マガジン紹介
+    li: +ga(0, "H_Kinkan", "#scrl_number")(class="nav3 clkScrl") 近刊予告
+    li: +ga(0, "New_backnumber", `https://deagostini.jp/backnumber/key_search.php?title_code[]=${seriesInitLower}`) バックナンバー・マガジンケース
+    li: +ga(1, "H_FAQ", faqUrl)(class="nav4") よくあるご質問
+    unless version == 0
+      li: +ga(1, "H_Schedule", kongonoyotei)(class="nav5") 今後のお届け予定
+    li: +ga(0, "H_Campaign", "#scrl_teikiPre")(class="nav5 clkScrl") 定期購読キャンペーン
+.naviArea2
+  +ga(0, "Hamburger", "#")(class="menuShow")
+    img(src=pathImg + 'menu.svg', width='62', height='65', alt='メニュー')

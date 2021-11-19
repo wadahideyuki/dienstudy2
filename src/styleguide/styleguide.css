@@ -1,0 +1,253 @@
+@charset "UTF-8";
+/* スタイルガイド用 */
+/* リセット
+---------------------------------------------------- */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 100%;
+}
+
+fieldset, img {
+  border: 0;
+  vertical-align: top;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+li {
+  list-style: none;
+}
+
+caption, th {
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6, small {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+br {
+  letter-spacing: normal;
+}
+
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*to enable resizing for IE*/
+input, textarea, select {
+  *font-size: 100%;
+}
+
+/* ページ共通
+---------------------------------------------------- */
+.styleguide h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  font-size: 3.0rem;
+  text-align: center;
+  line-height: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .styleguide h1 {
+    height: 9.375vw;
+  }
+}
+
+.styleguide .colWrap {
+  padding-left: 300px;
+}
+
+@media screen and (max-width: 767px) {
+  .styleguide .colWrap {
+    padding: 0 0 31.25vw;
+  }
+}
+
+.styleguide .colSide {
+  width: 300px;
+  padding: 20px;
+  font-size: 2.0rem;
+  border-right: 1px solid #000;
+  box-sizing: border-box;
+  position: fixed;
+  top: 150px;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .styleguide .colSide {
+    background-color: #fff;
+    width: 100%;
+    height: 37.5vw;
+    padding: 1.5625vw;
+    border-top: 1px solid #000;
+    border-right: none;
+    top: auto;
+  }
+}
+
+.styleguide .colSide .scrlBox {
+  height: 100%;
+  overflow: scroll;
+}
+
+.styleguide .colSide ul {
+  margin: 0 0.5em 1.0em 0;
+  padding: 0 0 1.0em 1.0em;
+  border-bottom: 1px solid #ddd;
+}
+
+@media screen and (max-width: 767px) {
+  .styleguide .colSide ul {
+    margin-right: 0;
+    padding-left: 2.0em;
+  }
+}
+
+.styleguide .colSide li {
+  list-style: disc;
+}
+
+.styleguide .colSide li a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.styleguide .colSide li a:hover {
+  opacity: 0.5;
+}
+
+.styleguide .colSide p {
+  margin: 0 0.5em 0.8em 0;
+  font-size: 0.8em;
+}
+
+@media screen and (max-width: 767px) {
+  .styleguide .colSide p {
+    margin-right: 0;
+  }
+}
+
+.styleguide .colMain {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 767px) {
+  .styleguide .colMain {
+    padding: 1.5625vw;
+  }
+}
+
+.styleguide .colMain section {
+  padding: 50px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .styleguide .colMain section {
+    padding: 4.6875vw 0;
+  }
+}
+
+.styleguide .colMain .sgTtl {
+  margin-bottom: 2.0em;
+  padding: 0;
+  color: #000;
+  font-size: 2.4rem;
+  text-align: center;
+  position: relative;
+}
+
+.styleguide .colMain .sgTtl:before {
+  content: "";
+  display: block;
+  background-color: #000;
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.styleguide .colMain .sgTtl span {
+  background-color: #fff;
+  padding: 0 1.0em;
+  border-bottom: none;
+  position: relative;
+}
+
+.styleguide .colMain .sgTtl2 {
+  margin-bottom: 2.0em;
+  font-size: 2.0rem;
+  text-align: center;
+}
+
+.styleguide .colMain .sgTxtList1 {
+  padding-left: 2.3em;
+}
+
+.styleguide .colMain .sgTxtList1 li {
+  list-style-type: disc;
+}
+
+.codeBox {
+  background-color: #eee;
+  margin: 20px;
+  padding: 10px 20px;
+  border-left: 3px solid #ccc;
+}
+
+@media screen and (max-width: 767px) {
+  .codeBox {
+    margin: 3.125vw;
+    padding: 1.5625vw 3.125vw;
+  }
+}
+
+.codeBox:before {
+  content: "pugの表記";
+  display: block;
+  margin-bottom: 0.2em;
+  font-size: 2.2rem;
+  font-weight: bold;
+}

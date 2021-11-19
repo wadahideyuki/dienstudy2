@@ -1,0 +1,139 @@
+section#secRule
+  h2.sgTtl: span 基本ルール
+  ul.sgTxtList1
+    li marginとpaddingは「5px」刻み
+    li widthなどは%とvwも可
+    li .innerについて#[br]
+      |初期幅は1000px#[br]
+      |blockによって異なる場合は個別に設定#[br]
+      |sp時は左右に15pxのpadding#[br]
+    li spでもfont-sizeは固定
+    li pugのmixinでパスに関する物(img,css,js)は
+      ul.sgTxtList1
+        li +img("ファイル名", "alt")
+        li +pic("ファイル名", "spのファイル名", "alt")
+        li +css("ファイル名", "alt")
+        li +js("ファイル名", "alt")
+      |を使用する
+    li 別ページ(モーダルや立ち読みなど)のパスは
+      ul.sgTxtList1
+        li +img2("ファイル名", "alt")
+        li +pic2("ファイル名", "spのファイル名", "alt")
+        li +css2("ファイル名", "alt")
+        li +js2("ファイル名", "alt")
+      |を使用する#[br]
+      |※各mixinに「2」が付いているだけ
+
+
+section#secTtl
+  h2.sgTtl: span タイトル
+  h2.u-ttl1 .u-ttl1
+  pre.codeBox.
+    .u-ttl1 .u-ttl1
+  h2.u-ttl2 .u-ttl2
+  pre.codeBox.
+    .u-ttl2 .u-ttl2
+
+
+section#secAcrd
+  h2.sgTtl: span アコーディオン
+  .acrdBox.no1
+    h3.acrdBtn.show アコーディオンタイトル(これをclick)
+    .acrdCont(style='display: block;') アコーディオン箱
+  .acrdBox.no2
+    h3.acrdBtn アコーディオンタイトル(これをclick)
+    .acrdCont アコーディオン箱
+  pre.codeBox.
+    .acrdBox.no1
+      .acrdBtn.show アコーディオンタイトル(これをclick)
+      .acrdCont(style='display: block;') アコーディオン箱
+    .acrdBox.no2
+      .acrdBtn アコーディオンタイトル(これをclick)
+      .acrdCont アコーディオン箱
+  ul.sgTxtList1
+    li アコーディオンを構成するパーツは3つ
+      br
+      |「.acrdBox」「.acrdBtn」「.acrdCont」
+    li jsにて
+      br
+      |「clickした.acrdBtnがある.acrdBox、の中の.acrdCont」が開閉する
+    li open時
+      br
+      |.acrdBtnは.showがつく
+      br
+      |.acrdContはdisplay:block;になる
+    li 最初からopenさせておきたい物には
+      br
+      |.acrdBtnに.showを付ける
+      br
+      |.acrdContはタグにdisplay:block;を直書きしておく
+
+
+section#secBln
+  h2.sgTtl: span 吹き出し
+  h3.sgTtl2 吹き出し1
+  .clkBlnBox
+    img(src="http://placehold.jp/1000x400.png")
+    .clkBlns
+      span(style="top:10%;left:20%;")
+        dl.bln.is_B.dir_R
+          dt dtタグで吹き出しタイトル
+          dd ddタグで吹き出しの内容#[br].blnをdlタグで指定
+      span(style="bottom:10%;right:20%;")
+        .bln.is_T.dir_L.sz_13
+          strong strongタグで吹き出しタイトル
+          p pタグで吹き出しの内容#[br].blnをdivタグで指定#[br].sz_13を指定
+  pre.codeBox.
+    .clkBlnBox
+      img(src="http://placehold.jp/1000x400.png")
+      .clkBlns
+        span
+          dl.bln.is_B.dir_R
+            dt 吹き出しタイトル
+            dd 吹き出しの内容
+        span
+          .bln.is_T.dir_L.sz_13
+            strong 吹き出しタイトル
+            p 吹き出しの内容
+  ul.sgTxtList1
+    li .clkBlnBoxの中に画像を入れる
+      br
+      |或いは.clkBlnBoxの幅などをcssで指定する
+    li .clkBlnsの直下のspanを量産する
+      br
+      |spanは個別にpositionを設定する(上記はタグに直接指定しているが通常cssファイルに記述する)
+    li spanの中に.blnを指定
+      br
+      |.blnには「.is_～」「.dir_～」「.sz_～」が設定出来る
+      br
+      |.is_～が向き(必須)
+      br
+      |.dir_～が方向(必須)
+      br
+      |.sz_～が幅(任意)
+    li 吹き出しの向きと方向はそれぞれ
+      br
+      |Top, Bottom, Left, Rightの4つずつある
+      br
+      |例：
+      br
+      |.is_T は吹き出しが上向きに出る
+      br
+      |.dir_L は吹き出しが左方向に延びる
+    li .sz_は10～30まであり
+      br
+      |widthが10em～30emで設定出来る
+
+
+
+section
+  h2.sgTtl: span 複製用
+  h3.sgTtl2 複製用
+  pre.codeBox.
+    複製用
+  p.sgTxt 複製用
+
+
+
+
+

@@ -1,0 +1,42 @@
+include /_config/_mixin.pug
+
+head
+  meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+  meta(http-equiv='content-script-type', content='text/javascript')
+  meta(http-equiv='content-script-type', content='text/css')
+  meta(name='viewport', content='width=device-width,initial-scale=1,user-scalable=no')
+  meta(name='robots', content='noindex,nofollow')
+  unless version == 0
+    link(rel='canonical', href=`https://deagostini.jp/${seriesInitLower}/`)
+  title #{seriesTtl} | デアゴスティーニ・ジャパン
+  link(rel='icon', type='image/x-icon', href='/favicond.ico')
+  meta(name='description', content=`「${seriesTtl}」デアゴスティーニ・ジャパン公式サイト。直送定期購読キャンペーンなど情報満載。`)
+  meta(name='keywords', content='デアゴ,ディアゴ,deagostini,パートワーク,分冊百科,模型')
+  // OGs
+  +og("site_name", "DeAGOSTINI デアゴスティーニ・ジャパン")
+  +og("title", `${seriesTtl} | デアゴスティーニ・ジャパン`)
+  +og("description", `「${seriesTtl}」デアゴスティーニ・ジャパン公式サイト。直送定期購読キャンペーンなど情報満載。`)
+  +og("type", "website")
+  +og("url", `https://deagostini.jp/${seriesInit}/`)
+  +og("image", `https://deagostini.jp/image/${seriesInitUpper}/issue_1_1.jpg`)
+  // /OGs
+  +deagoCss("common.css")
+  +deagoCss("thickbox.css")
+  +deagoJs("jquery.js")
+  +deagoJs("basicfunction.js")
+  +deagoJs("swfobject.js")
+  +deagoJs("thickbox_flashtop.js")
+
+body
+  // wrapper
+  -var pageWrap = page == "top" ? "pageTop" : ""
+    #wrapper(class=pageWrap)
+      // header
+      +deagoJs("styleswitcher.js")
+      +deagoJs("jquery.colorbox.js")
+      +deagoJs("cartbox.js")
+      +deagoJs("jquery.easing.1.2.js")
+      +deagoJs("jquery.anythingslider.js")
+      +deagoJs("jquery_hover.js")
+      +deagoJs("cartinsert.js")
+      +deagoCss("cartbox.css")

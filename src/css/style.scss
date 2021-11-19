@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import "init/reset";//リセット
+
+//プラグイン
+@import "plugin/colorbox";
+@import "plugin/slick-theme";
+@import "plugin/slick";
+@import "plugin/animate";
+
+@import "init/regular";//シリーズ共通(定型)あまりイジらない
+@import "init/series";//シリーズ毎の共通クラスなど(ヘッダーとか)
+
+//indexコンテンツ毎
+@import "index_cont/main";
+@import "index_cont/block_top";
+@import "index_cont/intro";
+@import "index_cont/magazine";
+@import "index_cont/number";
+@import "index_cont/teiki";
+
+//全国用
+@import "national/parts";
+@import "national/order";
+
+
+//他ページ
+@import "page/faq";
+@import "page/topics";
+@import "page/modal_num";
+@import "page/movie";
+
+
+@import "plugin/class";//単独クラス
+
+
+
+
+
+

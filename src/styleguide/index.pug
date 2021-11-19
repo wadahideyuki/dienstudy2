@@ -1,0 +1,52 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  include /_config/_mixin.pug
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(http-equiv='content-script-type', content='text/javascript')
+    meta(http-equiv='content-script-type', content='text/css')
+    meta(name='viewport', content='width=device-width,initial-scale=1,user-scalable=no')
+    title スタイルガイド | デアゴスティーニ・ジャパン
+    meta(name='description', content=``)
+    meta(name='keywords', content='')
+    +deagoCss("common.css")
+    +deagoCss("thickbox.css")
+    +deagoJs("jquery.js")
+    +deagoJs("basicfunction.js")
+    +deagoJs("swfobject.js")
+    +deagoJs("thickbox_flashtop.js")
+    link(rel='shortcut icon', type='image/x-icon', href='/favicond.ico')
+    link(href='https://fonts.googleapis.com/earlyaccess/notosansjapanese.css', rel='stylesheet', type='text/css', media='all')
+    +css("style.css")
+    +js("plugin.js")
+    +js("title.js")
+    link(href='styleguide.css', rel='stylesheet', type='text/css', media='all')
+  body
+    // wrapper
+    #wrapper
+      // header
+      +deagoJs("styleswitcher.js")
+      +deagoJs("jquery.colorbox.js")
+      +deagoJs("cartbox.js")
+      +deagoJs("jquery.easing.1.2.js")
+      +deagoJs("jquery.anythingslider.js")
+      +deagoJs("jquery_hover.js")
+      +deagoJs("cartinsert.js")
+      +deagoCss("cartbox.css")
+
+      main.styleguide
+        h1 スタイルガイド用
+        .colWrap
+          aside.colSide
+            include /_side.pug
+
+          article.colMain
+            include /_main.pug
+
+
+
+
+
+
+
+

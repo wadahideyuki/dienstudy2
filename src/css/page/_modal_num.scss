@@ -1,0 +1,109 @@
+/*--------------------------------------
+  近刊のモーダル
+---------------------------------------*/
+.modalNum {
+  display: block;
+  max-width: 767px;
+  margin: auto;
+  padding: percentage(30/$spDesign) percentage(30/$spDesign) percentage(60/$spDesign);
+  @include mq(s){
+    padding-top: percentage(60/$spDesign);
+  }
+  .infoMain{
+    text-align: center;
+    h1{
+      margin-bottom: 0.3em;
+      font-size: 3.0rem;
+      @include mq(s){
+      }
+      em{
+        font-weight: bold;
+      }
+      strong{
+        font-size: 1.4em;
+        font-weight: bold;
+        @include mq(s){
+        }
+      }
+    }
+    .hyosi{
+      margin-bottom: percentage(20/580);
+      img{
+        width: 50%;
+        @include mq(s){
+          width: 80%;
+        }
+      }
+    }
+    .date{
+      margin-bottom: 1.5em;
+      font-size: 2.0rem;
+      @include mq(s){
+      }
+    }
+  }
+  .infoDetail{
+    .txts{
+      margin-bottom: 2.0em;
+      font-size: 2.0rem;
+      @include mq(s){
+      }
+      dt{
+        padding: 0.8em;
+        color: #fff;
+        border-radius: 0 100px 100px 0;
+        @include mq(s){
+        }
+        &.color1{background-color: #ea6c52;}
+        &.color2{background-color: #3b876f;}
+        &.color3{background-color: #28496e;}
+      }
+      dd{
+        margin-top: 0.8em;
+        font-size: 2.6rem;
+        @include mq(s){
+        }
+        + dt{
+          margin-top: 1.6em;
+          @include mq(s){
+          }
+        }
+        small{
+          display: block;
+          margin-top: 0.5em;
+          font-size: em(28/36);
+          @include mq(s){
+          }
+        }
+      }
+    }
+    .img{
+      text-align: center;
+    }
+  }
+  @each $color in $numColors{
+    $i: index($numColors, $color);
+    &.is_no#{$i}{
+      h1{
+        color: nth($numColors, $i);
+      }
+    }
+  }
+  .btnPageMdlCls{
+    display: none;
+    @include mq(s){
+      display: block;
+      margin-top: 100px;
+      text-align: center;
+      a{
+        display: inline-block;
+        background-color: #999;
+        padding: 0.6em 1.5em;
+        color: #fff;
+        font-size: 2.6rem;
+        text-decoration: none;
+        border-radius: vw(10);
+      }
+    }
+  }
+}

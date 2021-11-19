@@ -1,0 +1,112 @@
+/*----------------------------------------
+  近刊予告
+----------------------------------------*/
+
+$name: "number";
+$thisPath: $pathImg + $name + "/";
+
+article:not(.block_#{$name}){
+//  display: none;
+}
+.block_#{$name}{
+  padding-bottom: 50px;
+  @include mq{
+  }
+  $in: 1260;
+  $imgNum: 5;
+  $imgW: 190;//画像幅が均一の時
+  $imgWs://画像幅が不揃いの時
+    223,
+    239,
+    239,
+    240;
+  $imgWsum: 0;//画像幅が不揃いの時の合計
+  @each $item in $imgWs{
+    $imgWsum: $imgWsum + $item;
+  }
+  $spImgW: 163;
+  $spYohaku: 20;
+  .inner{
+    @include mq{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  h2{
+    padding: 30px 0;
+    font-size: 4.8rem;
+    font-weight: bold;
+  }
+  .spScrlX{
+    @include mq{
+      margin-bottom: vw(30);
+    }
+  }
+  .numBox{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    @include mq{
+      width: vw(($imgNum * $spImgW) + (($imgNum - 1) * $spYohaku));
+      padding: vw(10) vw(15) vw(20);
+      margin-bottom: 0;
+    }
+    a{
+      display: block;
+      text-decoration: none;
+      .img{
+        margin-bottom: 15px;
+        img{
+          width: 100%;
+          transition: 0.3s;
+        }
+      }
+      p{
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+        @include mq{
+          font-size: 2.4rem;
+        }
+        strong{
+          font-size: em(22/18);
+          @include mq{
+          }
+        }
+        em{
+          font-size: em(28/18);
+          @include mq{
+          }
+        }
+      }
+      &:hover{
+        .img{
+          img{
+            transform: scale(1.1);
+          }
+        }
+      }
+      @each $color in $numColors{
+        $i: index($numColors, $color);
+        &:nth-child(#{$i}){
+          p{
+            color: nth($numColors, $i);
+          }
+        }
+      }
+    }
+  }
+  .toNext{
+    font-size: 3.4rem;
+    font-weight: bold;
+    text-align: center;
+    @include mq{
+      font-size: 2.4rem;
+    }
+    small{
+      display: block;
+      margin-top: 0.8em;
+      font-size: em(17/34);
+    }
+  }
+}

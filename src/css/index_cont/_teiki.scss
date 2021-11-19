@@ -1,0 +1,84 @@
+/*----------------------------------------
+  定期
+----------------------------------------*/
+
+$name: "teiki";
+$thisPath: $pathImg + $name + "/";
+
+article:not(.block_#{$name}){
+//  display: none;
+}
+.block_#{$name}{
+  .teikiTtl{
+    background-color: #b91c22;
+    padding: 25px 0;
+    @include mq{
+      padding: vw(20) 0;
+      img{
+        width: vw(584);
+        height: auto;
+      }
+    }
+  }
+  .bg{
+    padding: 25px 0 110px;
+    @include mq{
+      padding: vw(30) 0;
+    }
+  }
+  .priceBox{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    @include mq{
+      display: block;
+      margin-bottom: vw(15);
+      img{
+        height: auto;
+      }
+    }
+    li{
+      @include mq{
+        text-align: center;
+      }
+      &:nth-child(1){
+        padding: 0 55px 0 0;
+        @include mq{
+          padding: 0 0 vw(25);
+          img{
+            width: vw(585);
+          }
+        }
+      }
+      &:nth-child(2){
+        @include mq{
+          img{
+            width: vw(585);
+          }
+        }
+      }
+    }
+  }
+  .teikiBottom{
+    padding-top: 30px;
+    @include mq{
+      padding-top: vw(20);
+    }
+    .inner{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include mq{
+        display: block;
+      }
+    }
+    .ftTxt{
+      font-size: 2.2rem;
+      @include mq{
+        margin-bottom: vw(25);
+        font-size: 1.8rem;
+        text-align: center;
+      }
+    }
+  }
+}

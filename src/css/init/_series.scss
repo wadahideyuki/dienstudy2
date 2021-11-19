@@ -1,0 +1,755 @@
+@charset "UTF-8";
+//シリーズ毎のscss
+
+
+/*--------------------------------------
+  ユニーク
+---------------------------------------*/
+//スクロールポイント
+a[name^="scrl"]{
+  position: relative;
+  &[name="scrl_number"]{
+    @include mq{
+    }
+  }
+  &[name="scrl_teiki"]{
+    @include mq{
+    }
+  }
+}
+
+
+/*--------------------------------------
+  ページ内共通
+---------------------------------------*/
+//背景
+.bg1{background:url($pathImg + "bg1.png") 0 0 repeat;}
+
+//矢印
+.arw1{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(255,240,0,0.8);
+	width: 47px;
+	height: 83px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	@include hvr;
+	&:before{
+		content: "";
+		display: block;
+		width: 18px;
+		height: 18px;
+		border-bottom: 4px solid #000;
+	}
+	&.pre{
+		border-radius: 0 5px 5px 0;
+		left: 0;
+		&:before{
+			border-left: 4px solid #000;
+			transform: translate(5px, 1px) rotate(45deg);
+		}
+	}
+	&.nxt{
+		border-radius: 5px 0 0 5px;
+		right: 0;
+		&:before{
+			border-right: 4px solid #000;
+			transform: translate(-5px, 1px) rotate(-45deg);
+		}
+	}
+
+}
+
+
+//アコーディオン
+.acrdBtn{
+  position: relative;
+  cursor: pointer;
+  @include hvrBrt;
+  &:after{
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: auto;
+    margin-right: 0.5em;
+    border-style: solid;
+    border-width: 0.3em 0.3em 0 0;
+    border-color: #fff #fff transparent transparent;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 30px;
+    transform: translateY(-0.25em) rotate(135deg);
+    @include mq{
+      right: vw(30);
+    }
+  }
+  &.show{
+    &:after{
+      transform: translateY(0.25em) rotate(-45deg);
+    }
+  }
+}
+
+
+//click吹出
+.clkBlnBox{
+  $blnColor: #740003;
+  $blnSize: 50;
+  $blnSizeSp: 70;
+  position: relative;
+  > img{
+    width: 100%;
+  }
+  .clkBlns{
+    > span{
+      position: absolute;
+      cursor: pointer;
+      &:before{
+        content: "";
+        display: inline-block;
+        background: url(../images/clk_circle.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        width: px($blnSize);
+        height: px($blnSize);
+        transition: opacity 0.3s;
+        animation-name: syukusyo;
+        animation-duration: 0.8s;
+        animation-iteration-count: infinite;
+        @include mq{
+          width: vw($blnSizeSp);
+          height: vw($blnSizeSp);
+        }
+      }
+      &:hover{
+        &:before{
+          opacity: 0.7;
+        }
+      }
+      .bln{
+        display: none;
+        background-color: $blnColor;
+        width: 18.0em;
+        padding: 0.8em 1.0em;
+        color: #fff;
+        font-size: 1.6rem;
+        position: absolute;
+        @include mq{
+          font-size: 2.0rem;
+        }
+        &:before{
+          content: "";
+          display: block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-color: transparent;
+          position: absolute;
+        }
+        strong{
+          display: block;
+          margin-bottom: 0.3em;
+          font-weight: bold;
+          font-size: 1.2em;
+          line-height: 1.2;
+        }
+        p{
+        }
+        &.sz_{//吹出の幅
+          @for $i from 10 through 30{
+            &#{$i}{width: $i * 1em;}
+          }
+        }
+        &.spSz_{//吹出の幅
+          @for $i from 10 through 30{
+            @include mq{
+              &#{$i}{width: $i * 1em;}
+            }
+          }
+        }
+        &.is_{//吹出の向き
+          $blnPos: px($blnSize);
+          $blnPosSp: vw($blnSizeSp) ;
+          &T{
+            bottom: $blnPos;
+            &:before{
+              border-width: 1.0em 0.5em 0;
+              border-top-color: $blnColor;
+              bottom: -0.95em;
+            }
+            @include mq{
+              bottom: $blnPosSp;
+            }
+          }
+          &B{
+            top: $blnPos;
+            &:before{
+              border-width: 0 0.5em 1.0em;
+              border-bottom-color: $blnColor;
+              top: -0.95em;
+            }
+            @include mq{
+              top: $blnPosSp;
+            }
+          }
+          &R{
+            left: $blnPos;
+            &:before{
+              border-width: 0.5em 1.0em 0.5em 0;
+              border-right-color: $blnColor;
+              left: -0.95em;
+            }
+            @include mq{
+              left: $blnPosSp;
+            }
+          }
+          &L{
+            right: $blnPos;
+            &:before{
+              border-width: 0.5em 0 0.5em 1.0em;
+              border-left-color: $blnColor;
+              right: -0.95em;
+            }
+            @include mq{
+              right: $blnPosSp;
+            }
+          }
+        }
+        &.dir_{//吹出の方向
+          &T{
+            bottom: 0;
+            &:before{
+              bottom: 1.1em;
+              @include mq{
+                bottom: vw(25.6);
+              }
+            }
+          }
+          &B{
+            top: 0;
+            &:before{
+              top: 1.1em;
+              @include mq{
+                top: vw(25.6);
+              }
+            }
+          }
+          &R{
+            left: 0;
+            &:before{
+              left: 1.2em;
+              @include mq{
+                left: vw(24);
+              }
+            }
+          }
+          &L{
+            right: 0;
+            &:before{
+              right: 1.0em;
+              @include mq{
+                right: vw(28.8);
+              }
+            }
+          }
+        }
+        &.spDir_{//spで上書きする吹出の方向
+          @include mq{
+            &C{
+              left: vw(-160);
+              &:before{
+                left: vw(183);
+              }
+            }
+          }
+        }
+      }
+      &.show{
+        z-index: 1;
+        .bln{
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+
+//カラーボックス
+#cbox2Close{
+  background: url($pathImg + "colorbox_close.svg") center center no-repeat;
+  background-size: 80% auto;
+  width: 86px;
+  height: 30px;
+}
+@include mq(s){
+  #cbox2Overlay{
+    opacity: 1.0 !important;
+  }
+  #colorbox,
+  #cbox2Wrapper,
+  #cbox2Content,
+  #cbox2LoadedContent{
+    width: 100% !important;
+    height: 100vh !important;
+  }
+  #cbox2Title,
+  #cbox2Current{
+    width: 100% !important;
+  }
+  #cbox2TopLeft,
+  #cbox2TopCenter,
+  #cbox2TopRight,
+  #cbox2MiddleLeft,
+  #cbox2MiddleRight,
+  #cbox2BottomLeft,
+  #cbox2BottomCenter,
+  #cbox2BottomRight{
+    display: none !important;
+  }
+  #colorbox{
+    max-width: none;
+    position: fixed !important;
+    top: 0 !important;
+  }
+  #cbox2Content{
+    width: auto;
+    padding-bottom: 0;
+  }
+  #cbox2LoadedContent{
+    margin-bottom: 0;
+    padding: 0;
+  }
+  $arwScale: 0.8;
+  $arwPos: 15;
+  #cbox2Previous,
+  #cbox2Next{
+    width: vw(40 * $arwScale);
+    height: vw(40 * $arwScale);
+    border-width: vw(8 * $arwScale) vw(8 * $arwScale) 0 0;
+  }
+  #cbox2Previous{
+    left: vw($arwPos);
+  }
+  #cbox2Next{
+    right: vw($arwPos);
+  }
+  #cbox2Current{
+    font-size: 1.2rem;
+    line-height: 1;
+    text-shadow:
+      0 0 3px #324289,
+      0 0 3px #324289,
+      0 0 3px #324289;
+    top: vw(15);
+    left: vw(10);
+  }
+  #cbox2Close{
+    width: vw(86 * 1.8);
+    height: vw(30 * 1.8);
+    top: vw(5);
+    right: 0;
+    bottom: auto;
+  }
+  .cbox2Photo{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}//@include mq(s)
+.modalNum .btnPageMdlCls{
+  display: none !important;
+}
+
+
+//スリック
+.slick-slider{margin-bottom: 0;}
+.slick-arrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.9) !important;
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+  transform: translate(0, 0);
+  transition: 0.3s;
+  @include mq{
+  }
+  &:before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-left: 6px solid #fff;
+    border-bottom: 6px solid #fff;
+    opacity: 1;
+    @include mq{
+      width: vw(20);
+      height: vw(20);
+      border-width: 0 0 vw(6) vw(6);
+    }
+  }
+  &:hover{
+    opacity: 0.5;
+  }
+}
+.slick-prev {
+  left: 0;
+  &:before {
+    transform: translate(5px, 0) rotate(45deg);
+    @include mq{
+    }
+  }
+}
+.slick-next{
+  right: 0;
+  &:before {
+    transform: translate(-5px, 0) rotate(225deg);
+    @include mq{
+    }
+  }
+}
+.slick-dots{
+  bottom: 0;
+  li{
+    background-color: #ccc;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    &.slick-active{
+      background-color: #ffe100;
+    }
+    button{
+      display: none;
+    }
+  }
+  @include mq{
+    margin-top: vw(40);
+    position: static;
+    li{
+      width: vw(20);
+      height: vw(20);
+    }
+  }
+}
+
+
+/*--------- アニメーション ---------*/
+@keyframes scale1{
+	0%{transform: scale(1.2);}
+	100%{transform: scale(1);}
+}
+
+
+/*--------- 定期ボタン ---------*/
+//定期ボタンの大きさ
+$teikiBtnW: 1000px;
+.btnBox {
+	display: block;
+	width: $teikiBtnW;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	@include mq{
+		width:100%;
+    box-sizing: border-box;
+	}
+	a{
+    @include hvrBrt;
+		img{
+      display: block;
+			width: 100%;
+			@include mq{
+				height: auto;
+        &.pcShow{
+          display: none;
+        }
+			}
+		}
+	}
+}
+
+
+/*--------- プレゼント ---------*/
+//プレゼント画像の大きさ
+$preImgW: 1000px;
+.teikiPre {
+	text-align: center;
+	@include mq{
+		padding-left: vw(15);
+		padding-right: vw(15);
+	}
+	> .ttl{
+		margin-bottom: 25px;
+		@include mq{
+			width: vw(580);
+			margin: 0 auto vw(20);
+		}
+	}
+	> .btnBox{
+		margin-bottom: 15px;
+		@include mq{
+			margin-bottom: vw(30);
+		}
+	}
+	> .txt{
+		margin-bottom: 45px;
+		@include mq{
+			width: vw(580);
+			margin: 0 auto vw(15);
+		}
+	}
+	.preBox{
+		width: $preImgW;
+		margin: auto;
+		@include mq{
+			width: auto;
+		}
+		> a{
+			display: block;
+			@include hvr;
+			@include mq{
+			}
+      + a{
+        margin-top: 30px;
+        @include mq{
+          margin-top: vw(20);
+        }
+      }
+		}
+	}
+	.preNote{
+		margin-top: 10px;
+		color: #351a01;
+		font-size: 1.2rem;
+		line-height: (25/12);
+		text-align: left;
+		@include mq{
+			margin-top: vw(15);
+			line-height: (18/12);
+		}
+		strong{
+			display: block;
+			font-size: 1.6rem;
+			font-weight: bold;
+			line-height: 1;
+			@include mq{
+        font-size: 1.2rem;
+				letter-spacing: -0.05em;
+				line-height: inherit;
+			}
+		}
+	}
+}
+
+.orderBtn{
+	display: block;
+	max-width: 980px;
+	margin:auto;
+	position: relative;
+	&:after{
+		content: "";
+		display: block;
+		background-color: #fff;
+		border-radius: 10px;
+		opacity: 0;
+		transition: 0.3s;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	&:hover:after{opacity: 0.2;	}
+	.preBox + &{margin-top: 30px;}
+	@include mq{
+		max-width: none;
+		&:after{border-radius: vw(5);}
+		&:hover:after{}
+		.preBox + &{margin-top: vw(10);}
+	}
+}
+
+
+/*--------------------------------------
+  ページ内レイアウト(唯一、特定の部分)
+---------------------------------------*/
+$navColor1: #fdd000;
+.naviArea{
+	background-color:rgba(0,15,24,0.8);
+	border-style: solid;
+	border-width: 1px;
+	border-color: $navColor1;
+	position:fixed;
+	top:130px;
+	right:-400px;
+	border-radius: 5px;
+	z-index:9999;
+	overflow:hidden;
+  @include mq{
+  	top:vw(50);
+  }
+	li{
+		font-size: 1.4rem;
+		& + li{border-top:1px solid $navColor1;}
+		@include mq{
+			font-size: 2.4rem;
+		}
+		a{
+			display:block;
+			padding: em(10/14) em(10/14) em(10/14) em(23/14);
+			color:#fff;
+			text-decoration:none;
+			text-shadow:
+				0 0 7px rgba(0,15,24,1.0),
+				0 0 7px rgba(0,15,24,1.0),
+				0 0 7px rgba(0,15,24,1.0),
+				0 0 7px rgba(0,15,24,1.0),
+				0 0 7px rgba(0,15,24,1.0),
+				0 0 7px rgba(0,15,24,1.0),
+				0 0 7px rgba(0,15,24,1.0);
+      position: relative;
+      transition: color 0.3s;
+			&:hover{color:$navColor1;}
+			@include mq{
+			}
+      &:before{
+        content: "";
+        display: block;
+        width: em(6/14);
+        height: em(6/14);
+        margin: auto;
+        border-bottom: em(2/14) solid #be0615;
+        border-right: em(2/14) solid #be0615;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: em(10/14);
+        transform: translate(em(-2/14), em(1/14)) rotate(-45deg);
+      }
+		}
+	}
+}
+.clsNav{
+	background: $navColor1;
+	color: #000f18;
+	height: 30px;
+	display: block;
+	font-size: 1.4rem;
+	text-align: center;
+	padding: 8px;
+	cursor: pointer;
+  @include hvr(0.8);
+	@include mq{
+		height: auto;
+		padding: em(15/16);
+		font-size: 2.4rem;
+		text-align: left;
+	}
+	> *{
+		display: inline-block;
+		padding-top: 5px;
+		vertical-align: middle;
+		@include mq{
+			padding-top: 0;
+		}
+	}
+	b{
+		padding-right: 5px;
+		font-size: em(18/14);
+		line-height: 1;
+    @include mq{
+      padding-right: vw(5);
+    }
+	}
+	span{
+	}
+}
+.naviArea2{
+	position:fixed;
+	top:130px;
+	right:0px;
+	z-index:9999;
+  @include mq{
+  	top:vw(50);
+  }
+  .menuShow{
+    display: block;
+    width: 62px;
+    @include hvr;
+  }
+}
+.navi3Wrap{
+	@include mq{
+		display: none;
+	}
+}
+.naviArea3{
+	background-color:#24a4b5;
+	text-align:center;
+	border-top:solid 3px #fff;
+	border-bottom:solid 3px #fff;
+	margin:0;
+	padding:0;
+	&.fix{
+		width: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 999;
+	}
+}
+.naviInner3{
+	margin:0;
+	padding:15px 0 10px 0;
+	a{
+		background-image:url(../images/nav_arw1.png);
+		background-repeat:no-repeat;
+		background-position: 19px 7px;
+		margin:0 0 0 0;
+		padding:0 22px 0 40px;
+		color:#fff;
+		font-weight:bold;
+		font-size:24px;
+		text-decoration:none;
+		background-size: 20px;
+		border-left:1px solid #fff;
+		&.bar{
+			border-right:1px solid #fff;
+		}
+		&:hover{
+			background-image:url(../images/nav_arw1_on.png);
+			color:#dae535;
+		}
+	}
+}
+
+
+.naviAreaSp{
+  display: none;
+}
+/*--------------------------------------
+  新着情報ページ
+---------------------------------------*/
+.newsTtl {
+  border-left: 4px solid #399;
+  padding: 0px 0px 0px 10px;
+  margin-bottom: 5px;
+  color: #399;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.newsTxt {
+  margin-bottom: 15px;
+}
+
+
+
+

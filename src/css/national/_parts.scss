@@ -1,0 +1,191 @@
+//全国版用
+
+/*---------- SNS ----------*/
+.snsBtns{
+  display: flex;
+  @include mq{
+    justify-content: center;
+  }
+	li{
+    @include mq{
+      width: vw(170);
+    }
+    + li{
+      margin-left: 16px;
+      @include mq{
+        margin-left: vw(16);
+      }
+    }
+    a{
+      display: block;
+      img{
+        @include mq{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+	}
+}
+
+
+/*---------- ヘッダーのSNS ----------*/
+#hdSns{
+	position:absolute;
+	right:10px;
+	top:10px;
+	z-index:9999;
+  @include mq{
+    display: none;
+  }
+}
+
+
+/*---------- 帯 ----------*/
+.navObi {//全国版のmain下の帯
+  background-color: #d7000f;
+  text-align: center;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  @include mq{
+    display: none;
+  }
+  &.fix {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+  }
+  .inner{
+    padding-top: 8px;
+    padding-bottom: 7px;
+  }
+  nav{
+    display: flex;
+    justify-content: center;
+    line-height: 1;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    a {
+      display: block;
+      width: percentage(100/3);
+      margin: 0;
+      padding: 0.7em 1em;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border-left: 1px solid rgba(255,255,255,0.2);
+      transition: color 0.3s;
+      span{
+        display: inline-block;
+        vertical-align: middle;
+        &:before{
+          content: "";
+          display: inline-block;
+          width: 0.6em;
+          margin-right: 0.8em;
+          height: 0.6em;
+          transform: rotate(45deg);
+          border-top: 3px solid #FFF;
+          border-right: 3px solid #FFF;
+        }
+      }
+      &:hover {
+        color: #dae535;
+      }
+    }
+  }
+}
+
+
+/*---------- フッター ----------*/
+.cluboff{
+  a{
+    display: block;
+    width: 973px;
+    margin: 20px auto 0;
+    @include hvr;
+    @include mq{
+      width: vw(404);
+      margin-top: vw(30);
+    }
+  }
+  img{
+    @include mq{
+      width: 100%;
+    }
+  }
+}
+.nationalFoot{
+  padding: 35px 0;
+  border-top: 1px solid #ccc;
+  @include mq{
+    padding: vw(30) 0;
+  }
+  > .inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 780px;
+    @include mq{
+      display: block;
+    }
+  }
+}
+
+.bnBtns{
+  text-align: center;
+  @include mq{
+    margin-top: vw(30);
+  }
+}
+.bnTrial{
+  a{
+    display: block;
+    @include hvr;
+  }
+  img{
+    @include mq{
+      width: 100%;
+    }
+  }
+}
+.btnNotice{
+	padding-bottom: 13px;
+  line-height: 1;
+  @include mq{
+    padding-bottom: vw(22);
+  }
+	a{
+		display: inline-block;
+		background-color: #fff;
+		padding: 0 30px;
+		color: #449999 !important;
+		font-size: 18px !important;
+		text-decoration: none;
+		border: 2px solid #ccc;
+		border-radius: 100px;
+    @include hvr;
+    @include mq{
+      padding: 0 vw(50);
+      font-size: 2.7rem !important;
+    }
+    span{
+      display: inline-block;
+      background-image: url(/site/common/img/icn_oshirase.png);
+      background-position: left center;
+      background-repeat: no-repeat;
+      padding: 15px 0 15px 36px;
+      @include mq{
+        background-size: vw(25*1.7) vw(17*1.7);
+        padding: vw(25) 0 vw(25) vw(60);
+      }
+    }
+	}
+}
+#ftSns{
+  @include mq{
+  }
+}
+

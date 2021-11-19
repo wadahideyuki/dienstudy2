@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+.Fw{
+	&B{font-weight: bold !important;}
+	&N{font-weight: normal !important;}
+}
+
+/*-- Etc --*/
+.Dis{
+	&I{display:inline !important;}
+	&B{display:block !important;}
+	&IB{display:inline-block !important;}
+	&T{display:table !important;}
+	&TC{display:table-cell !important;}
+	&N{display:none !important;}
+	&F{display: flex !important;}
+}
+
+.Jc{
+  &FS{justify-content: flex-start !important;}
+  &FE{justify-content: flex-end !important;}
+  &C{justify-content: center !important;}
+  &SB{justify-content: space-between !important;}
+  &SA{justify-content: space-around !important;}
+}
+
+.Ai{
+  &FS{align-items: flex-start;}
+  &FE{align-items: flex-end !important;}
+  &C{align-items: center !important;}
+  &S{align-items: stretch !important;}
+  &B{align-items: baseline !important;}
+}
+
+.Ta {
+	&L{text-align: left !important;}
+	&R{text-align: right !important;}
+	&C{text-align: center !important;}
+}
+.Va {
+	&T{vertical-align: top !important;}
+	&M{vertical-align: middle !important;}
+	&B{vertical-align: bottom !important;}
+	&TB{vertical-align: text-bottom !important;}
+}
+
+.Flt{
+	&L{float: left !important;}
+	&R{float: right!important;}
+	&N{float: none!important;}
+}
+
+.Pos{
+	&S{position:static !important;}
+	&R{position:relative !important;}
+	&A{position:absolute !important;}
+	&F{position:fixed !important;}
+}
+
+.brWord{word-wrap:break-word;}
+.waNw{white-space: nowrap;}
+
+.printDown{display:none;}
+.printBreak{display:none;}
+
+
+@include mq($bp:pc){
+	.sp{display: none !important;}
+
+/*-- Width --*/
+.pcWAuto{width:auto !important;}
+
+.pc{
+  &Fw{
+    &B{font-weight: bold !important;}
+    &N{font-weight: normal !important;}
+  }
+
+  /*-- Etc --*/
+  &Dis{
+    &I{display:inline !important;}
+    &B{display:block !important;}
+    &IB{display:inline-block !important;}
+    &T{display:table !important;}
+    &TC{display:table-cell !important;}
+    &N{display:none !important;}
+    &F{display: flex !important;}
+  }
+
+  &Jc{
+    &FS{justify-content: flex-start !important;}
+    &FE{justify-content: flex-end !important;}
+    &C{justify-content: center !important;}
+    &SB{justify-content: space-between !important;}
+    &SA{justify-content: space-around !important;}
+  }
+
+  &Ai{
+    &FS{align-items: flex-start;}
+    &FE{align-items: flex-end !important;}
+    &C{align-items: center !important;}
+    &S{align-items: stretch !important;}
+    &B{align-items: baseline !important;}
+  }
+
+  &Ta {
+    &L{text-align: left !important;}
+    &R{text-align: right !important;}
+    &C{text-align: center !important;}
+  }
+  &Va {
+    &T{vertical-align: top !important;}
+    &M{vertical-align: middle !important;}
+    &B{vertical-align: bottom !important;}
+    &TB{vertical-align: text-bottom !important;}
+  }
+
+  &Flt{
+    &L{float: left !important;}
+    &R{float: right!important;}
+    &N{float: none!important;}
+  }
+
+  &Pos{
+    &S{position:static !important;}
+    &R{position:relative !important;}
+    &A{position:absolute !important;}
+    &F{position:fixed !important;}
+  }
+}
+
+}
+
+
+@include mq{
+.pc{display: none !important;}
+
+/*-- Width --*/
+.spWAuto{width:auto !important;}
+
+.sp{
+  &Fw{
+    &B{font-weight: bold !important;}
+    &N{font-weight: normal !important;}
+  }
+
+  /*-- Etc --*/
+  &Dis{
+    &I{display:inline !important;}
+    &B{display:block !important;}
+    &IB{display:inline-block !important;}
+    &T{display:table !important;}
+    &TC{display:table-cell !important;}
+    &N{display:none !important;}
+    &F{display: flex !important;}
+  }
+
+  &Jc{
+    &FS{justify-content: flex-start !important;}
+    &FE{justify-content: flex-end !important;}
+    &C{justify-content: center !important;}
+    &SB{justify-content: space-between !important;}
+    &SA{justify-content: space-around !important;}
+  }
+
+  &Ai{
+    &FS{align-items: flex-start;}
+    &FE{align-items: flex-end !important;}
+    &C{align-items: center !important;}
+    &S{align-items: stretch !important;}
+    &B{align-items: baseline !important;}
+  }
+
+  &Ta {
+    &L{text-align: left !important;}
+    &R{text-align: right !important;}
+    &C{text-align: center !important;}
+  }
+  &Va {
+    &T{vertical-align: top !important;}
+    &M{vertical-align: middle !important;}
+    &B{vertical-align: bottom !important;}
+    &TB{vertical-align: text-bottom !important;}
+  }
+
+  &Flt{
+    &L{float: left !important;}
+    &R{float: right!important;}
+    &N{float: none!important;}
+  }
+
+  &Pos{
+    &S{position:static !important;}
+    &R{position:relative !important;}
+    &A{position:absolute !important;}
+    &F{position:fixed !important;}
+  }
+}
+
+}
+

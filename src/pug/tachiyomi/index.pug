@@ -1,0 +1,24 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  include /_parts/_head.pug
+    link(href='https://fonts.googleapis.com/earlyaccess/notosansjapanese.css', rel='stylesheet', type='text/css', media='all')
+    +css2('style.css')
+    +js2('plugin.js')
+    +js2('title.js')
+
+    .p-tachiyomi
+      h2
+        span 本誌をチョットだけ公開
+        strong 試し読みサービス
+
+      .tachiyomiSld
+        ul.pc
+          li.liItem.pcItem: +img2("tachiyomi/pc01.png")
+          li.liItem.pcItem: +img2("tachiyomi/pc01.png")
+
+        ul.sp
+          li.liItem.spItem: +img2("tachiyomi/sp01.png")
+
+
+
+

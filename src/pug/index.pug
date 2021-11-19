@@ -1,0 +1,78 @@
+-var page = "top"
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  include /_parts/_head.pug
+    #contents
+      link(rel='shortcut icon', type='image/x-icon', href='/favicond.ico')
+      +css("style.css")
+      +js("plugin.js")
+      +js("title.js")
+      #deagoLogo
+        if version == 0
+          +deagoLogo
+        else
+          +ga(0, "Logo", "/")
+            +deagoLogo
+
+      unless version == 0
+        // headSNS(全国用)
+        #hdSns
+          include /_national/_sns.pug
+      // NAvi
+      include /_parts/_nav_side.pug
+
+
+      main(class=`mainContents ${seriesInitLower}-page`)
+        // メインイメージ
+        article.block_main
+          include /_index_cont/_main.pug
+
+        unless version == 0
+          // nav帯(全国用)
+          include /_national/_nav_obi.pug
+
+        .btnSprt
+          a(href=pathLower + "movie/", target="_blank")
+            +picNoLazy("bn_mov.png", "bn_mov_sp.png", "組み立てサポート動画 詳細へ")
+
+        // ページ上部
+        article.block_top
+          include /_index_cont/_block_top.pug
+
+
+        // intro
+        a#scrl_intro(name='scrl_intro')
+        article.block_intro
+          include /_index_cont/_intro.pug
+          .pc: +gaTeiki("02")
+
+
+        // マガジン
+        a#scrl_magazine(name='scrl_magazine')
+        article.block_magazine
+          include /_index_cont/_magazine.pug
+
+
+        // 近刊予告
+        a#scrl_number(name='scrl_number')
+        article.block_number
+          include /_index_cont/_number.pug
+
+
+        unless version == 0
+          // アップセル(全国用)
+          a#scrl_upsell(name='scrl_upsell')
+          article.block_upsell
+            include /_national/_upsell.pug
+
+        // 定期購読
+        a#scrl_teiki(name='scrl_teiki')
+        article.block_teiki
+          include /_index_cont/_teiki.pug
+
+
+        unless version == 0
+          // フッター(全国用)
+          include /_national/_foot_parts.pug
+      // //contents
+    include /_parts/_footer.pug

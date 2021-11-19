@@ -1,0 +1,31 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  include /_parts/_head.pug
+    link(href='https://fonts.googleapis.com/earlyaccess/notosansjapanese.css', rel='stylesheet', type='text/css', media='all')
+    +css2("style.css")
+    +js2("plugin.js")
+    +js2("title.js")
+
+
+    -var thisNum = 1
+    main(class="modalNum is_no" + thisNum)
+      .infoMain
+        h1 #[em 創刊号]
+        .hyosi: +img2("number/modal_" + thisNum + "_img01.png", "創刊号")
+        p.date X月XX日 発売
+
+      .infoDetail
+        dl.txts
+          dt.color1 たいとるたいとる
+          dd ないようないよう
+
+          dt.color2 たいとるたいとる
+          dd ないようないよう
+
+          dt.color3 たいとるたいとる
+          dd ないようないよう
+
+        .img: +img2("number/modal_" + thisNum + "_img02.png", "")
+
+
+      .btnPageMdlCls: a(href="") 閉じる

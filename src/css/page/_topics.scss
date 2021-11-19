@@ -1,0 +1,57 @@
+@charset "UTF-8";
+//シリーズ毎のscss
+.pageTopics{
+	background: url(./images/product/bg_wrap1.jpg) no-repeat top;
+	background-attachment: fixed;
+	background-size: cover;
+	
+	.contents{
+		max-width: 980px;
+		margin: 0 auto;
+		width: 94%;
+		padding-bottom: 40px;
+		min-height: 70vh;
+	}
+	h2{
+		font-size: 4rem;
+		padding: 30px 0;
+	}
+	.newsInner{
+		background: rgba(255,255,255,0.1);
+		padding: 20px;
+		max-width: 800px;
+		width: 94%;
+		margin: 0 auto 20px auto;
+		box-sizing: border-box;
+		border-radius: 8px;
+		h3{
+			background: rgba(15,78,149,0.5);
+			padding: 5px 10px;
+			border-radius: 8px;
+			font-size: 1.7rem;
+			margin: 0 0 20px 0;
+		}
+		p{
+			font-size: 1.4rem;
+			line-height: 1.6;
+			margin-bottom: 40px;
+			a{
+				color: #F8FF00
+			}
+		}
+	}
+	dl{
+		font-size: 1.6rem;
+		border-bottom: 1px dotted #FFF;
+		padding: 0 0 15px 0;
+		margin-bottom: 15px;
+		&:last-child{
+			border: none;;
+		padding: 0 ;
+		margin-bottom: 0;
+		}
+	}
+	
+	
+	
+}

@@ -1,0 +1,99 @@
+/*--------------------------------------
+  立ち読み
+---------------------------------------*/
+.p-tachiyomi{
+  background: url(../images/bg_grid_gold.jpg) center top repeat;
+  padding: 20px 0;
+  @include mq{
+    padding: vw(20) 0 vw(30);
+  }
+  h2{
+    margin-bottom: 10px;
+    font-weight: bold;
+    @include mq{
+      margin-bottom: vw(20);
+    }
+    span{
+      display: block;
+      color: #000;
+      font-size: 4.0rem;
+    }
+    strong{
+      display: inline-block;
+      color: #e60012;
+      font-size: 5.0rem;
+      font-weight: bold;
+      text-shadow:
+        0 0 3px #fff,
+        0 0 3px #fff,
+        0 0 3px #fff,
+        0 0 3px #fff,
+        0 0 3px #fff;
+    }
+  }
+
+  .slick-arrow{
+    background: none;
+    width: 50px;
+    height: 50px;
+    border-bottom: 10px solid #f00;
+    transition: 0.3s;
+    @include mq{
+    }
+    &.slick-prev{
+      border-left: 10px solid #f00;
+      left: 50px;
+      transform: translateY(0) rotate(45deg);
+    }
+    &.slick-next{
+      border-right: 10px solid #f00;
+      right: 50px;
+      transform: translateY(0) rotate(-45deg);
+    }
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+  .slick-dots{
+    li{
+      background-color: #fff;
+      @include mq{
+        width: vw(20);
+        height: vw(20);
+      }
+      &.slick-active{
+        background-color: #f00;
+      }
+    }
+  }
+  .slick-slider{
+    padding-bottom: 50px;
+    @include mq{
+    }
+  }
+  .liItem{
+    //max-width: 1200px;
+    padding: 10px 0;
+    text-align: center;
+    opacity: 0.2;
+    @include mq{
+      width: 30vw;
+    }
+    &.slick-active{    
+      opacity: 1;
+    }
+    img{
+      width: 70%;
+      margin: auto;
+      display: inline;
+      box-shadow: 0 0 10px 0px #fff;
+      @include mq{
+        width: 90%;
+      }
+    }
+    &.pcItem{
+    }
+    &.spItem{
+    }
+  }
+}

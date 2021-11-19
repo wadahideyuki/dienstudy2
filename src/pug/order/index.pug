@@ -1,0 +1,425 @@
+//- ------------------------------
+              変数
+  ------------------------------//
+//- 定期購読価格 +組み立て代
+- var teikikumitate = "770"
+//- 2019年10月以降　組み立て代
+- var teikikumitateAfter10 = "XXX"
+//- 一括前払い
+- var ikkatumae = "237,908"
+//- 毎月支払いよりお得
+- var otokuTxt = "16,500"
+//- 受付期間、申込期限
+- var uketukekikan = "2020年11月23日"
+
+
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  include /_parts/_head.pug
+    +css2("style.css")
+    +js2("plugin.js")
+    +js2("title.js")
+    script(src="order.js" type="text/javascript")
+    script.
+      $(function(){
+      var winW = $(window).width();
+      if(winW > 768){
+      $(".mdlImgSingle").colorbox({opacity: 0.5});
+      }
+      });
+
+    .orderPage
+      - var name = "pageOrder"
+      h1
+        a(href=`/${seriesInit}/`, target='_blank')
+          img(src='../common/images/order/ttl.png', alt=seriesTtl + '定期購読のお申し込み')
+
+      section.teikiPre
+        .in
+          p.ima
+            img(src="../common/images/order/pre_ttl.png", alt="今、定期購読をお申込みいただくと")
+
+          .preBox
+            unless version == 0
+              +ga(1, "web_present", "../common/images/teikipre/webpre.png")(class="mdlImgSingle preWeb")
+                img.ovr(src="../common/images/teikipre/pre_web_img.png", loading="lazy", alt="Web限定プレゼント")
+              .pre2
+                img(src="../common/images/teikipre/pre_web_img2.png", loading="lazy", alt="500円キャッシュバック")
+                p  ※キャッシュバックは本誌第10号のお支払から引かさせていただきます。 （発送前に解約された場合には特典の対象外となります）
+                    +ga(1, "Zen_present", "../common/images/teikipre/zenpre.png")(class="mdlImgSingle preZen")
+              img.ovr(src="../common/images/teikipre/pre_img.png", loading="lazy", alt="読者全員プレゼント！")
+
+            p.preNote ※デザイン・色・スペック等は変更になる場合がございます。ご了承ください。
+
+      .orderBox
+        h2
+          img(src='../common/images/order/order_ttl.png', alt='お申し込みはこちらから')
+        section.step1
+          h3
+            em ステップ1
+            span #{seriesTtl} 定期購読
+          .cont
+            .photo
+              img(src='../common/images/order/ph01.png', alt='')
+            .txt
+              ul.priceTxt
+                li.bgPink.fontL 送料無料
+                li.bgPink.fontL 途中解約可能
+                li.fontPrice
+                  | 創刊号特別価格
+                  strong #{priceSokan}
+                  | 円
+                  em （10％税込）
+                  small 第2号以降通常価格：#{priceNormal}円＋税
+              .txts
+                p.note.fontS
+                  span.fontB [第2号～第15号]
+                  |  ２号分まとめて奇数号の発売日前後にお届けします（ゆうパック）。
+                p.note.fontS
+                  span.fontB [第16号以降]
+                  |  月１回
+                  a(href='https://deagostini.custhelp.com/app/answers/detail/a_id/9011', target='_blank') エコ・パッケージ
+                  | でお届けします（ゆうパック）。
+                  br
+                p.note.fontS
+                  | ※配送周期や梱包形態は変更になる場合がございます。
+                  br
+                  | ※配送スケジュールは
+                  a(href='https://deagostini.custhelp.com/app/answers/detail/a_id/5128', target='_blank') コチラ
+                  | からご確認ください。
+                  br
+          ul.selectArea.teiki
+            li
+              input#teikiCheck(type='checkbox', name='teikiCheck', onclick="$('#id_teikiStart > option')[1].selected = true;")
+              
+              label(for='teikiCheck')
+                .numSelect
+                  select#id_teikiStart.teikiStart(name="")
+                    //option(value="0") 開始号を選択
+                    //option(value="1") 第1号から
+                    //option(value="2") 第2号から
+                em
+                  | 定期購読を申し込む
+                  small （ご指定の号からお届けします）
+            
+
+              //select#id_teikiStart.teikiStart
+        section
+          h3
+            em ステップ2
+            span
+              | 創刊号からの組み立てサービス
+              b.aboutLink
+                | (
+                a.kumiateBtn(href='kumitate/', target='_blank') 組み立てサービスとは？
+                | )
+          .cont
+            .photo
+              img(src='../common/images/order/ph05.png', alt='')
+            .txt
+              p.MB10.leadTxt.spMB0
+                | 『#{seriesTtl}』の提供パーツを使用し、本誌の「組み立てガイド」に準じた組み立てを行います。#[br]
+                span.redC  ※本サービスはカスタムパーツコレクションには対応していません。
+              p.MB10.fontS(style='margin-top: -10px;margin-bottom: 20px;')
+                | ※
+                span.kigen 申込期限：#{uketukekikan}まで
+                br
+                |※「組み立てサービス」は創刊号からの受け付けのみになります。
+              ul.priceTxt.isType2
+                li.bgPink 毎月支払い
+                li.fontPrice
+                  | 定期購読価格 +組み立て代#{teikikumitate}円
+                  em （毎号/10%消費税込）
+              p.MB20.fontS
+                | ※決済方法：クレジットカード／郵便・コンビニエンス振込み（振込用紙）
+                br
+                |※組み立てサービス付き定期購読の開始号は創刊号からのみの受け付けとなります。
+                br
+                |※ご請求は定期購読価格＋組み立て代#{teikikumitate}円（毎号／10%税込）です。
+              ul.priceTxt.isType2
+                li.bgPink 一括前払い
+                li.fontPrice
+                  | #{ikkatumae}円
+                  em （10%消費税込）
+              p.MB10.fontS
+                | ※決済方法：クレジットカード
+                br
+                |※組み立てサービス付き定期購読の開始号は創刊号からのみの受け付けとなります。
+                br
+                |※毎月支払いを選択した場合より#{otokuTxt}円お得です。
+          .kumitateSelect.kumitate2
+            .col3.col3C
+              ul.selectArea.noArrow
+                li
+                  input#kumitateCheck1.kumitateCheck(type="radio" name="kumitateCheck" checked="")
+                  label(for="kumitateCheck1")
+                    b 組み立てサービスを利用しない#[br.sp](自分で組み立てる)
+            .col3.col3R
+              ul.selectArea.noArrow
+                li
+                  input#kumitateCheck2.kumitateCheck(type="radio" name="kumitateCheck")
+                  label(for="kumitateCheck2")
+                    b 【毎月支払い】で#[br.sp]組み立てサービスを申し込む
+            .col3.col3R
+              ul.selectArea
+                li
+                  input#kumitateCheck3.kumitateCheck(type="radio" name="kumitateCheck")
+                  label(for="kumitateCheck3")
+                    b 【一括前払い】で#[br.sp]組み立てサービスを申し込む
+
+          // グレーアウト
+          #step2.sectionWrap
+            img(src='./common/images/spacer.gif', width='1', height='1', alt='')
+          // //グレーアウト
+          
+          
+        section
+          h3.step2Ttl
+            em ステップ3 
+            
+            span  
+              strong 本誌をもっと楽める
+              | カスタムパーツコレクション【全4回】
+          .cont
+            .photo
+              img(src='../common/images/order/ph02.png' alt='')
+            .txt
+              p.leadTxt カスタムパーツコレクション【全4回】は、弊社直送専用商品です。
+              ul.priceTxt
+                li.fontPrice
+                  | 第1回：1,600円#[em （＋税）]、第2回：2,500円#[em （＋税）]#[br]第3回：2,500円#[em （＋税）]、第4回：2,200円#[em （＋税）]
+                  strong
+                  | 円
+                  em （10％税込）
+              p.fontS.sougakuTxt(style='font-weight: bold;')
+                | 組み立て一括払いを選択頂きますと自動的にカスタムパーツコレクションも一括支払いとなります。
+              p.fontS.mlNone
+                | ※上記金額には本誌の価格は含まれません。
+                br
+                |※本商品のみでもお申込いただけますが、その場合、別途送料（各回540円［10％税込み］）を頂戴します。 
+                br
+                |※直送定期購読と一緒にお申込の場合、送料無料となります。支払い方法は直送定期購読と同一になります。 
+                br
+                |※直送定期購読のお申込数より本商品のお申込数が上回った場合、差数分の送料（各回540円）を頂戴します。
+                br
+                |※受付期間：#{uketukekikan}まで
+              //p.alertTxt2
+                | 既に直送定期購読をお申込済のお客様で、追加で
+                span.subTxt ミニチャンプス コレクション《全4回》
+                | をご希望の場合は、必ずお電話（0120-300-851【受付時間9時～21時※年末年始除く】）にてお申込ください。Webから追加お申込みをした場合、送料・手数料 各回540円（税込）をいただきます。
+          
+          .upsellSlect
+            ul.selectArea.noOrder
+              li
+                input#upsCheck2(type="radio" name="upsCheck" checked="")
+                label(for="upsCheck2")
+                  span.subTxt 申し込まない
+
+            ul.selectArea.step2
+              li
+                input#upsCheck(type="radio" name="upsCheck")
+                label(for="upsCheck")
+                  span.subTxt カスタムパーツコレクションを申し込む
+
+        //section
+          h3
+            em ステップ3
+            span お届けについて
+          .photo
+            img(src='common/images/order/ph04.png', alt='', width='203', height='169')
+          .txt
+            ul.priceTxt
+              li.bgPink.fontL 月一配送で発売日前の号数が届きます！
+            p.leadTxt
+              | 2週に一度のお届けを月1回におまとめするサービスをお選びいただけます。月一配送をお申し込みいただくと、
+              em.fontRed 発売日前のものも含めて
+              | その月に発売される号をまとめてお届けいたします。
+            p.fontS
+              | 頻繁に荷物を受け取りできない、などのご意見にお応えして、月1回おまとめ発送するサービスをご用意しました。
+              br
+              |  月1回、
+              strong 第4火曜日前後
+              | にまとめてお届けします。※3号以降は、エコパックでのお届けとなります。
+          ul.selectArea
+            li
+              input#tukiichiCheck(type='checkbox', name='tukiichiCheck')
+              label(for='tukiichiCheck') 月一回まとめてお届け
+          #step4.sectionWrap
+            img(src='./common/images/spacer.gif', alt='', width='13', height='13')
+
+        section
+          h3
+            em ステップ4
+            span 本誌専用特製バインダー
+          .cont
+            .photo
+              img(src='../common/images/order/ph03.png', width='208', height='224', alt='')
+            .txt
+              p.leadTxt 1冊に20号分を収納できます。
+              ul.priceTxt
+                li.bgPink.mb10 2021年3月末まで特別価格でご提供
+                li.fontPrice
+                  | 特別価格：#{priceBinder}
+                  strong
+                  | 円
+                  em （+税/1冊）
+              p.fontS
+                | ※本誌専用特製バインダーは第4号と同時発売（2020年10月6日）です。
+                br(style='display:inline;')
+                |※お申し込みは上記発売日前でも可能です。お届けは発売日以降になります。
+                br
+                |※通常価格#{priceBinderNormal}円（+税）を創刊特別キャンペーンとして、#{priceBinder}円（+税）で販売いたします（2021年3月末日まで）。
+          ul.selectArea.binder
+            li
+              input#binderCheck.binderCheck(type='checkbox', name='binderCheck', onclick="$('#id_binderNum').val(1);")
+              label(for='binderCheck')
+                select#id_binderNum.binderNum(disabled='')
+                  option(value='0') 冊数を選択
+                  option(value='1') 1冊
+                  option(value='2') 2冊
+                  option(value='3') 3冊
+                  option(value='4') 4冊
+                  option(value='5') 5冊
+                span バインダーを申し込む
+              
+        //section
+          h3
+            em ステップ4
+            span あわせて注文！デジタル版
+          .photo
+            img(src='../common/images/order/ph06.png', width='203', height='169', alt='')
+          .txt
+            p.MB10.leadTxt.spMB0 毎号+100円でデジタルの購読が可能に！
+            p.fontS
+              | デジタル版の購入はあらかじめ会員登録を行ってください。
+              a(href='//deagostini.jp/mypage/pre_regist.php', target='_blank') 新規会員登録はこちら
+            p.fontS
+              a(href='//deagostini.jp/ebook/index.html', target='_blank') デジタル版とは？
+              a(href='https://reader.deagostini.jp/howtouse/', target='_blank') 使い方と動作環境
+          .txt.is_no2
+            .kumitateSelect
+              .col2.col2L
+                ul.selectArea.noArrow
+                  li
+                    input#kumitate1(type='radio', name='kumitate')
+                    label(for='kumitate1') 紙面版+デジタル版
+              .col2.col2R
+                ul.selectArea
+                  li
+                    input#kumitate2(type='radio', name='kumitate', checked='')
+                    label(for='kumitate2') 紙面版のみ
+          .sectionWrap
+            img(src='./common/images/spacer.gif', width='13', height='13', alt='')
+          
+        section
+          h3.step2Ttl
+            em ステップ5 
+            span  歴代GT-R ハイクラス・モデルカーコレクション2nd【全5回】
+          .cont
+            .photo
+              img(src='../common/images/order/ph07.png' alt='')
+            .txt
+              p.leadTxt 歴代GT-R ハイクラス・モデルカーコレクション2nd【全5回】は、弊社直送専用商品です。
+              ul.priceTxt
+                li.fontPrice
+                  | 第1回：25,500円#[em （＋税）]、第2回：25,500円#[em （＋税）]#[br]第3回：29,500円#[em （＋税）]、第4回：32,000円#[em （＋税）]#[br]第5回：メーカー想定価格32,000～33,500円（+税）
+
+              p.fontS.sougakuTxt(style='font-weight: bold;')
+              p.fontS.mlNone
+                | ※上記金額には本誌の価格は含まれません。
+                br
+                |※本商品のみでもお申込いただけますが、その場合、別途送料（各回540円［10％税込み］）を頂戴します。 
+                br
+                |※直送定期購読と一緒にお申込の場合、送料無料となります。支払い方法は直送定期購読と同一になります。 
+                br
+                |※受付期間：#{uketukekikan}まで
+          
+          
+          .upsellSlect
+            ul.selectArea.noOrder
+              li
+                input#dmkCheck2(type="radio" name="dmkCheck" checked="")
+                label(for="dmkCheck2")
+                  span.subTxt 申し込まない
+
+            ul.selectArea.step2
+              li
+                input#dmkCheck(type="radio" name="dmkCheck")
+                label(for="dmkCheck")
+                  span.subTxt ハイクラス・モデルカーコレクション2ndを申し込む
+        // グレーアウト
+        .kiyakuWrap(style='display: none')
+          p.kiyakuTtl 組み立てサービスご利用規約 #[span  ※必ずお読みください]
+          .scrlTxt
+            p
+              |本サービスは弊社直送定期購読で『#{seriesTtl}』を創刊号からお申し込みいただいたお客様を対象にしたサービスです。#[br]本組み立てサービスは創刊号から第92号までの組み立てを代行するものであり、途中号からの組み立て代行ではありません 。弊社は、弊社の判断と責任のもとで、本組み立てサービスにかかる業務の全部または一部を第三者に委託することができるものとします。
+            p
+              strong 【商品のお届け】
+              br
+              |  #[u  マガジンと全員プレゼントのお届け]
+              br
+              |  マガジンは創刊号～第13号までは2号分ずつ隔週でお届けし、第14号以降はお届け週の翌週に発売される未来号も含めて月1回、第2火曜日前後にまとめてお届けします。(送料無料・メール便)
+              br
+              |  また、全員プレゼント達成号時点で定期契約ご継続中のお客様には、プレゼントも自動でお届け致します。
+              br
+              |  
+              br
+              |  #[u  組み立て済みのモデルのお届け]
+              br
+              |  2021年1月中旬より順次お届けの予定です。諸般の事情でお届けが遅れる場合はご連絡させていただきます。
+              br
+              |  ※本「組み立てサービス」は、『#{seriesTtl}』の提供パーツを使用し、本誌の組み立てガイドに準じた組み立てを行います。
+              br
+              |  マガジン内で紹介する塗装やアレンジにつきましては、サービスに含まれませんので、予めご了承ください。
+              br
+              |  ※離島へのお届けは、別途追加配達料金のご負担をお願いする場合がございます。また、通常よりお届けにお時間をいただいております。何とぞご了承ください。
+              br
+              |  
+              br
+              |  
+              strong 【解約】
+              br
+              |  本組み立てサービスのご解約は弊社お客様受注センターで承ります。#[br]途中で解約される場合、すでに出荷されている号数分は、組み立てサービス、商品代金とも返品・返金を承ることが出来ませんのでご了承ください。#[br]「一括お支払い」でお申し込みの場合は、お客様から解約の申し入れがあった時点で出荷されていない号数分の組み立てサ ービス、商品代金を計算しご返金に応じます。#[br]また、「一括お支払い」「分割お支払い」とも、解約された号まで組み立てたスカイライン2000GT-R 【KPGC110】を別途お送りさせて頂きます。#[br]解約のご連絡を頂いた後、2週間前後でのお届けを予定しております。
+            p.taR デアゴスティーニ・ジャパン お客様受注センター#[br]0120-300-851#[br](10:00～18:00 年末年始を除く）
+            p
+              strong 【修理】
+              br
+              |  本組み立てサービスで組立てお届けした「スカイライン2000GT-R 【KPGC110】」に関し、初期不良があった場合において、商品受取り後2週間以内に弊社お客様サポートセンターへご連絡をいただいたときには、無償で修理、または交換させていただきます。#[br]上記期間を越えてのお申し込みの場合は、有償で修理を承ります。#[br]有償修理の詳細は、弊社お客様サポートセンターよりご案内させていただきます。#[br]尚、完成後の「#{seriesTtl}」受取り後の返品や返金は受付けておりませんので、ご了承ください。
+            p.taR デアゴスティーニ・ジャパン お客様サポートセンター#[br]0120-288-528#[br]（10：00～18：00 土日祝日、夏季休業期間、年末年始を除く）
+            p
+              strong 【サービスの中断】
+              br
+              | 弊社が本組み立てサービスの停止または中断が必要であると判断した場合には、お客様に事前に通知することなく、本組み立てサービスの全部または一部を停止または一時的に中断することができるものとします。#[br]弊社は、上記の組み立てサービスの停止又は中断終了後、本組み立てサービスを継続し、お客様へのスケジュール通りのお届けを目指しますが、遅れる場合があることをご了承願います。#[br]本組み立てサービスの停止または中断によりお客様が被った損害・不利益について、弊社は一切の責任を負わないものとします。
+            p
+              strong 【変更】 
+              br
+              |  弊社は、弊社が必要と判断したとき、本組み立てサービス利用規約を事前の予告なく変更・改訂できるものとします。#[br]組み立てサービス利用規約の変更・改訂は、弊社がサイト上に当該変更・改訂内容を掲示することによりその効力を生じるものとし、これにより、本組み立てサービス利用者は、本規約の変更・改訂を承認したものとみなします。
+            p.taR デアゴスティーニ・ジャパン お客様受注センター#[br]0120-300-851#[br](10:00～18:00 年末年始を除く）
+            p 以上#[br]2019年1月29日
+          .douiBox
+            label
+              input#kumitateDoui(type='checkbox')
+              |  上記に同意する
+        section.campaign-block
+          dl
+            dt  キャンペーンコード
+            dd
+              input#campaignCode(type="number" placeholder="12345")
+              p キャンペーンコードをお持ちの方は入力してください
+
+        #order_btnBox.btnBox
+          a#order_url(href='#')
+            img.pcShow(src='../common/images/order/btn.png', width='990', height='182', alt='注文内容を確認する >')
+            span.spShow
+              img(src='../common/images/order/btnsp.png', width='990', height='182', alt='注文内容を確認する >')
+          .btnWrap(style='display: none')
+            img(src='./common/images/spacer.gif', width='13', height='13', alt='')
+
+          p.back
+            a(href=`/${seriesInit}/`)
+
+
+
+
+
+    include /_parts/_footer.pug
