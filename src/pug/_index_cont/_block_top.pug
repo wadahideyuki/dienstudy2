@@ -1,11 +1,25 @@
-h2 block_top
+
 .inner
+  .back-img 
+    .main
+      h2: +img("block-top/text-top.png")
+      .date: +img("block-top/day.png")
+      .text
+        span.tit ahsdashjkdhjahsd#[br]
+        span.kaki asdasdadssad
+      .car: +img("block-top/car.png")
+      .mid-text 
+        .left
+          span.top 光とサウンドのギミックを搭載!#[br]
+          span 完成後も長く楽しめる電動ギミックも作り込む。前後のライトや、室内灯、インパネのバックライトが点/消灯。始動から加速時のエンジンサウンドも再生できる。
+        .right
+          span.top ハチロクトレノを知り尽くす!#[br]実車通りの構造＆パーツ設計#[br]
+          span トレノAE 86型ならではのリトラクタブルヘッドランプはポップアップが可能。ウインカーやリアコンビネーションランプ、前期型だけのデジタルディスプレイメーター等、実車の仕様と構造にこだわった緻密な設計になっている。
+      .last-text モデルの仕様、材質等は変更になる場合があります。ご了承ください。
   .movZone
     ul.movBox
       -var movId = "zLqyFCi5tWk"
-      li(data-ytId=movId): img(src="http://img.youtube.com/vi/" + movId + "/maxresdefault.jpg", alt="")
-
+        li(data-ytId=movId): img(src="http://img.youtube.com/vi/" + movId + "/maxresdefault.jpg", alt="")
   .cmBox(style="display: none;")
     .cmInner
-    span.close ×
-
+    span.close 

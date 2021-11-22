@@ -1,13 +1,11 @@
-.pc
-  .bg
-    .cont
-      h1: +img("main/logo.png", seriesTtl)
-      p.day: +img("main/day.png", `${release}創刊`)
-      p.price: +img("main/price.png", `${priceAll}`)
-      p.copy: +img("main/copy.png", "")
-      p.txt: +img("main/txt.png", "")
-      p.txt2: +img("main/txt2.png", "")
-      a.btn(href=teikiUrl): +img("main/btn.png", "送料無料 定期購読お申し込み >")
-.sp
-  +img("main/img_sp.png", `${seriesTtl} ${priceAll} ${release}創刊`)
 
+.bg
+  .inner
+  .cont
+    h1: +img("main/logo.png", seriesTtl)
+    p.day: +img("main/day.png", `${release}創刊`)
+    p.price: +pic("main/price.png","main/price_sp.png", `${priceAll}`)
+    p.copy: +pic("main/txt2.png", "main/text-cop.png")
+    p.txt: +img("main/txt.png", "")
+    p.car: +img("main/photo.png","")
+    a.btn(href=teikiUrl): +img("main/btn.png", "送料無料 定期購読お申し込み >")
