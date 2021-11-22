@@ -15,7 +15,7 @@ article:not(.block_#{$name}){
     background-image: url("/common/images/block-top/bg.jpg");
     .main{
       width:980px;
-      height: 1000px;
+      height: 1150px;
       margin: 0 auto;
       position: relative;
       h2{
@@ -35,27 +35,51 @@ article:not(.block_#{$name}){
       .text{
         width: 410px;
         height:150px ;
+        position: absolute;
+        left: 300px;
+        top: 220px;
         span.tit{
           font-size: 2rem;
           color: yellow;
         }
         span.kaki{
+          margin-left: -15px;
           color: white;
         }
       }
       .mid-text{
-        display: flex;
-        .left{
-          width: 500px;
-          height: 200px;
-          span.top{
-            font-size: 2rem;
-            color: yellow;
-          }
-          span.bot{
-            color: white;
-          }
+        position: absolute;
+        top: 880px;
+        width: 400px;
+        height: 400px;
+        span.top{
+          font-size: 2rem;
+          color: yellow;
         }
+        span.bot{
+          color: white;
+        }
+      }
+      .mid-text-r{
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        top: 880px;
+        left: 550px;
+        span.top{
+          font-size: 2rem;
+          color: yellow;
+        }
+        span.bot{
+          color: white;
+        }
+      }
+      .last-text{
+        color: #fff;
+        font-size: 1.1rem;
+        position: absolute;
+        top: 1100px;
+        left: 600px;
       }
   }
 }

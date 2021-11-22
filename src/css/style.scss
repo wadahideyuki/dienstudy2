@@ -13,8 +13,8 @@
 @import "init/series";//シリーズ毎の共通クラスなど(ヘッダーとか)
 
 //indexコンテンツ毎
-@import "index_cont/main";
-@import "index_cont/block_top";
+@import "index_cont/_main";
+@import "index_cont/_block_top";
 @import "index_cont/intro";
 @import "index_cont/magazine";
 @import "index_cont/number";

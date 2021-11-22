@@ -2630,7 +2630,7 @@ a[name^="scrl"] {
 
 .block_top .inner .back-img .main {
   width: 980px;
-  height: 1000px;
+  height: 1150px;
   margin: 0 auto;
   position: relative;
 }
@@ -2655,6 +2655,9 @@ a[name^="scrl"] {
 .block_top .inner .back-img .main .text {
   width: 410px;
   height: 150px;
+  position: absolute;
+  left: 300px;
+  top: 220px;
 }
 
 .block_top .inner .back-img .main .text span.tit {
@@ -2663,25 +2666,49 @@ a[name^="scrl"] {
 }
 
 .block_top .inner .back-img .main .text span.kaki {
+  margin-left: -15px;
   color: white;
 }
 
 .block_top .inner .back-img .main .mid-text {
-  display: flex;
+  position: absolute;
+  top: 880px;
+  width: 400px;
+  height: 400px;
 }
 
-.block_top .inner .back-img .main .mid-text .left {
-  width: 500px;
-  height: 200px;
-}
-
-.block_top .inner .back-img .main .mid-text .left span.top {
+.block_top .inner .back-img .main .mid-text span.top {
   font-size: 2rem;
   color: yellow;
 }
 
-.block_top .inner .back-img .main .mid-text .left span.bot {
+.block_top .inner .back-img .main .mid-text span.bot {
   color: white;
+}
+
+.block_top .inner .back-img .main .mid-text-r {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 880px;
+  left: 550px;
+}
+
+.block_top .inner .back-img .main .mid-text-r span.top {
+  font-size: 2rem;
+  color: yellow;
+}
+
+.block_top .inner .back-img .main .mid-text-r span.bot {
+  color: white;
+}
+
+.block_top .inner .back-img .main .last-text {
+  color: #fff;
+  font-size: 1.1rem;
+  position: absolute;
+  top: 1100px;
+  left: 600px;
 }
 
 .block_top .inner .movZone {
