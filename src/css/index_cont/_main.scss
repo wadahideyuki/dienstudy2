@@ -1,101 +1,184 @@
-@charset "UTF-8";
-/*----------------------------------------
-  メイン
-----------------------------------------*/
-
-$name: "main";
-$thisPath: $pathImg + $name + "/";
-
-article:not(.block_#{$name}){
-//  display: none;
-}
-.block_#{$name}{
-  .bg{
-    background-image: url("/common/images/main/bg.jpg");
-    .cont{
-      width:980px;
-      height: 737px;
+.inner-top{
+  .back-img{
+    background-image: url("/common/images/main/bg-new.png");
+    .in-main{
+      width: 1080px;
+      height: 900px;
       margin: 0 auto;
       position: relative;
       @include mq{
         width: 100%;
-        height: 93vw;
+        height: 100vw;
       }
-      h1{
-        position: absolute;
-        right:142px ;
-        top: 45px;
+      .top-text{
+        text-align: center;
+        padding-top:50px ;
         @include mq{
-          position:absolute;
-          width: 90%;
-          height: 90%;
-          left: 3vw;
+          width: 118%;
+          margin-left: 5vw;
         }
       }
-      .day{
+      .intext{
         position: absolute;
-        right: -24px;
-        top: 33px;
-        @include mq{
-          width: 0%;
-          height: 0%;
-        }
-      }
-      .copy{
-        position: absolute;
-        left: 51px;
-        bottom:463px;
-        @include mq{
-          position:absolute;
-          width: 28%;
-          height: 28%;
-          top: 30vw;
-          left: 3vw;
-        }
-      }
-      .btn{
-        position: absolute;
-        right: -31px;
-        bottom: 14px;
-        @include mq{
-          width: 0%;
-          height: 0%;
-        }
-      }
-      .price{
-        position: absolute;
-        top: 546px;
-        left: 15px;
-        @include mq{
-          position: absolute ;
-          top: 74vw;
-          left: 0vw;
-        }
-      }
-      .txt{
-        position: absolute;
-        top: 535px;
-        left: 615px ;
+        top: 230px ;
         @include mq{
           position: absolute;
-          left: 35vw;
-          top: 74vw;
-          width: 60%;
-          height: 60%;
+          top: 81vw;
+          left: 3vw;
+          width: 48%;
         }
       }
       .car{
         position: absolute;
-        top: 130px;
-        left: -32px;
+        top: 250px;
         @include mq{
           position: absolute;
-          width: 120%;
-          height: 120%;
-          right: 40vw;
+          width: 111%;
+          left: -5vw;
+          top: 35vw;
+        }
+      }
+      .price{
+        position: absolute;
+        top: 650px;
+        @include mq{
+          position: absolute;
+          top: 92vw;
+          width: 95%;
+        }
+      }
+      .date{
+        position: absolute;
+        right: 0;
+        bottom: 138px;
+        @include mq{
+          position: absolute;
+          width: 52%;
+          bottom: 6vw;
+          right: 3vw;
+        }
+      }
+      .click{
+        position: absolute;
+        right: 0;
+        bottom: 30px;
+        @include mq{
+          width: 0%;
+        }
+      }
+    }
+  }
+  .inner-top-next{
+    background-repeat: repeat-x;
+    background-color: #0c0d12;
+    .bg-top{
+      margin: 0 auto;
+      position: relative;
+      .imgBox{
+      background-color: #0c0d12;
+      background-image: url("/common/images/main/bg1.jpg");
+      background-repeat: repeat-x;
+      text-align: center;
+      position: relative;
+      top: -260px;
+      margin-bottom: -350px;
+      @include mq{
+        width: 118%;
+        position: relative;
+        top: -20vw;
+        left: -10vw;
+        margin-bottom: -30vw;
+      }
+      }
+      .title{
+        text-align: center;
+        padding-top: 80px;
+        @include mq{
+          padding-top: 30vw;
+          width: 70%;
+          margin-left: 15vw;
+        }
+      }
+      .text-down{
+        padding-top: 30px;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        @include mq{
+          padding:0 2vw 0 2vw;
+        }
+        span.t{
+          color: #cbb854;
+          font-size: 4.0rem;
+          @include mq{
+            font-size: 3.2rem;
+          }
+        }
+        span.b{
+          color: #cbb854;
+          font-size: 1.6rem;
+          @include mq{
+            font-size: 2.2rem;
+            letter-spacing: 0.09em;
+            line-height: 1.5;
+          }
+        }
+      }
+      .scale-text{
+        position: relative;
+        z-index: 10;
+        top: 30px;
+        text-align: center;
+        left: 250px;
+        @include mq{
+          width: 24%;
+          position: relative;
+          left: 60vw;
+          top: 0;
+        }
+      }
+      .mid-text{
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        @include mq{
+          position:relative;
+          width: 90%;
+          margin-left: 3vw;
+        }
+      }
+      .top-car{
+        text-align: center;
+        padding-top: 70px;
+        @include mq{
+          width: 90%;
+          margin-left: 3vw;
+          margin-top: -3vw;
+        }
+      }
+      .front-car{
+        text-align: center;
+        margin:-268px -423px 0  0;
+        @include mq{
+          width: 40%;
+          margin-top: -28vw;
+          margin-left: 49vw;
+        }
+      }
+      .rear-car{
+        text-align: center;
+        margin:15px 420px 0  0;
+        @include mq{
+          width: 40%;
+          margin-left: 4vw;
+        }
+      }
+      .click-Last{
+        text-align: center;
+        @include mq{
+          margin-top: 10vw;
         }
       }
     }
   }
 }
-
